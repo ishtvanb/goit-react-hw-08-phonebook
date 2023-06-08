@@ -1,10 +1,11 @@
-import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { fetchContacts, addContact, deleteContact } from './operations';
+import { logOut } from 'redux/auth/operations';
 
-const handlePending = state => {
-  state.isLoading = true;
-  state.error = null;
-}
+// const handlePending = state => {
+//   state.isLoading = true;
+//   state.error = null;
+// }
 
 // eslint-disable-next-Line
 const handleFulfilled = (state) => {
@@ -72,6 +73,11 @@ const contactsSlice = createSlice({
       .addCase(fetchContacts.fulfilled, handleFulfilledFetch)
       .addCase(addContact.fulfilled, handleFulfilledAdd)
       .addCase(deleteContact.fulfilled, handleFulfilledDelete)
+      .addCase(logOut.fulfilled, state => {
+        state.items = [];
+        state.error = null;
+        state.isLoading = false;
+      })
       .addMatcher(
         isAnyOf(
           fetchContacts.pending,
