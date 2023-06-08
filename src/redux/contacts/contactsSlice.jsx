@@ -1,11 +1,12 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { fetchContacts, addContact, deleteContact } from './operations';
 import { logOut } from 'redux/auth/operations';
 
-// const handlePending = state => {
-//   state.isLoading = true;
-//   state.error = null;
-// }
+
+const handlePending = state => {
+  state.isLoading = true;
+  state.error = null;
+}
 
 // eslint-disable-next-Line
 const handleFulfilled = (state) => {
@@ -24,7 +25,7 @@ const handleFulfilledAdd = (state, { payload }) => {
 
 const handleFulfilledDelete = (state, { payload }) => {
   const index = state.items.findIndex(
-    contact => contact.id === payload.id);
+  contact => contact.id === payload.id);
   state.items.splice(index, 1);
 }
 
@@ -32,7 +33,7 @@ const handleRejected = (state, { payload }) => {
   state.isLoading = false;
   state.error = payload;
 }
-
+      
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState: {
@@ -68,7 +69,7 @@ const contactsSlice = createSlice({
   //   [deleteContact.rejected]: handleRejected,
   // },
 
-  extraReducers: builder => {
+   extraReducers: builder => {
     builder
       .addCase(fetchContacts.fulfilled, handleFulfilledFetch)
       .addCase(addContact.fulfilled, handleFulfilledAdd)
@@ -84,15 +85,15 @@ const contactsSlice = createSlice({
           addContact.pending,
           deleteContact.pending
         ), handlePending
-      )
-      .addMatcher(
+     )
+     .addMatcher(
         isAnyOf(
           fetchContacts.rejected,
           addContact.rejected,
           deleteContact.rejected
         ), handleRejected
-      )
-      .addMatcher(
+     )
+     .addMatcher(
         isAnyOf(
           fetchContacts.fulfilled,
           addContact.fulfilled,
