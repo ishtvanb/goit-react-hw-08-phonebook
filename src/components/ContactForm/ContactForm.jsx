@@ -1,21 +1,11 @@
-import { Formik, Field, getIn } from 'formik';
+import { Formik, Field } from 'formik';
 import toast, { Toaster } from 'react-hot-toast';
 import * as Yup from 'yup';
 import 'yup-phone-lite';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/operations';
-import {
-  Form,
-  FormField,
-  Cover,
-  Input,
-  FormLabel,
-  ErrorMessage,
-  FormButton,
-  PersonIcon,
-  PhoneIcon,
-} from './ContactForm.styled';
-import { selectContacts } from 'redux/selectors';
+import { addContact } from 'redux/contacts/operations';
+import { selectContacts } from 'redux/contacts/selectors';
+import { TextField, Button } from '@mui/material';
 
 const ContactSchema = Yup.object({
   name: Yup.string()
@@ -29,22 +19,13 @@ export const ContactForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
 
-  function getStyles(errors, touched, fieldName) {
-    if (getIn(errors, fieldName) && getIn(touched, fieldName)) {
-      return {
-        borderColor: 'red',
-      };
-    }
-    return {};
-  }
-
   return (
     <>
       <Toaster />
       <Formik
         initialValues={{
           name: '',
-          phone: '',
+          number: '',
         }}
 
       validationSchema={ContactSchema}
@@ -63,55 +44,52 @@ export const ContactForm = () => {
           }
         }}
       >
-      {formikProps => (
-        <Form>
-          <FormField>
-            <FormLabel htmlFor="name">Name</FormLabel>
-              <Cover>
-                <Field
-                  name="name"
-                  render={({ field }) => (
-                    <Input 
-                      {...field}
-                      placeholder="your name"
-                      id="name"
-                      style={getStyles(
-                      formikProps.errors,
-                      formikProps.touched,
-                      'name'
-                      )}
-                     />
-                    )}
-                  />
-                <PersonIcon />
-              </Cover>
-          <ErrorMessage name="name" component="div" />
-        </FormField>
-        <FormField>
-          <FormLabel htmlFor="name">Number</FormLabel>
-           <Cover>
-                <Field
-                  name="phone"
-                  render={({ field }) => (
-                    <Input
-                      {...field}
-                      placeholder="+38-0XX-XXX-XX-XX"
-                      id="number"
-                      style={getStyles(
-                        formikProps.errors,
-                        formikProps.touched,
-                        'phone'
-                        )}
-                      />
-                     )}
-                  />
-            <PhoneIcon />
-          </Cover>
-          <ErrorMessage name="phone" component="div" />
-        </FormField>
-        <FormButton type="submit">Add contact</FormButton>
-      </Form>
-      )}
+      {({ handleSubmit }) => (
+          <form onSubmit={handleSubmit}>
+            <Field name="name">
+              {({ field, form: { touched, errors } }) => (
+                <TextField
+                  {...field}
+                  label="Name"
+                  variant="outlined"
+                  error={touched.name && Boolean(errors.name)}
+                  helperText={touched.name && errors.name}
+                  fullWidth
+                  margin="normal"
+                  autoComplete="off"
+                  size="small"
+                />
+              )}
+            </Field>
+
+            <Field name="number">
+              {({ field, form: { touched, errors } }) => (
+                <TextField
+                  {...field}
+                  label="Number"
+                  variant="outlined"
+                  error={touched.number && Boolean(errors.number)}
+                  helperText={touched.number && errors.number}
+                  fullWidth
+                  margin="normal"
+                  autoComplete="off"
+                  size="small"
+                  sx={{ mb: 2 }}
+                />
+              )}
+            </Field>
+
+             <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              sx={{ mb: 4 }}
+              fullWidth
+            >
+              Add contact
+            </Button>
+          </form>
+        )}
       </Formik>
     </>
   );
