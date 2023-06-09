@@ -111,4 +111,4 @@ export const RegisterForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
