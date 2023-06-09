@@ -1,20 +1,23 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFilter } from 'redux/selectors';
 import { updateFilter } from 'redux/filterSlice';
+import { TextField } from '@mui/material';
 
-const inputId = nanoid();
 const Filter = () => {
   const value = useSelector(selectFilter);
   const dispatch = useDispatch();
 
   return (
     <>
-      <FilterLabel htmlFor={inputId}>Find contacts by name</FilterLabel>
-      <FilterInput
-        type="text"
-        value={value}
-        id={inputId}
+      <TextField
+        label="Find contacts by name"
+        variant="outlined"
         onChange={e => dispatch(updateFilter(e.target.value))}
+        id="Find contacts by name"
+        value={value}
+        size="small"
+        sx={{ mb: 4 }}
+        InputLabelProps={{ shrink: true }}
       />
     </>
   );
