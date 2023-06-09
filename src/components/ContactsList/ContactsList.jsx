@@ -3,6 +3,7 @@ import { ContactItem } from './ContactsList.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectVisibleContacts } from 'redux/contacts/selectors';
 import { deleteContact } from 'redux/contacts/operations';
+import { number } from 'prop-types';
 
 const ContactsList = () => {
   const contacts = useSelector(selectVisibleContacts);
@@ -27,7 +28,7 @@ const ContactsList = () => {
                 marginRight: '10px',
               }}
             >
-              {phone}
+              {number}
             </span>
 
             <BsTrash
