@@ -1,11 +1,16 @@
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { logIn } from 'redux/auth/operations';
 import { useState } from 'react';
+import { register } from 'redux/auth/operations';
 import { TextField, Button, InputAdornment, IconButton } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-const LogInSchema = Yup.object({
+
+const RegisterSchema = Yup.object({
+  name: Yup.string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Name is required!'),
   email: Yup.string('Enter your email')
     .email('Enter a valid email')
     .required('Email is required'),
@@ -14,22 +19,24 @@ const LogInSchema = Yup.object({
     .required('Password is required'),
 });
 
-export const LoginForm = () => {
+export const RegisterForm = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
 
   const handlePasswordVisibility = () => {
     setShowPassword(prevShowPassword => !prevShowPassword);
   };
+
   return (
     <Formik
       initialValues={{
+        name: '',
         email: '',
         password: '',
       }}
-      validationSchema={LogInSchema}
+      validationSchema={RegisterSchema}
       onSubmit={({ ...values }, actions) => {
-        dispatch(logIn({ ...values }));
+        dispatch(register({ ...values }));
         actions.resetForm();
       }}
     >
@@ -40,6 +47,23 @@ export const LoginForm = () => {
               <TextField
                 {...field}
                 label="Email"
+                variant="outlined"
+                error={touched.email && Boolean(errors.email)}
+                helperText={touched.email && errors.email}
+                fullWidth
+                margin="normal"
+                autoComplete="off"
+                size="small"
+              />
+            )}
+          </Field>
+          
+
+          <Field name="email">
+            {({ field, form: { touched, errors } }) => (
+              <TextField
+                {...field}
+                label="Password"
                 variant="outlined"
                 error={touched.email && Boolean(errors.email)}
                 helperText={touched.email && errors.email}
