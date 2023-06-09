@@ -1,6 +1,6 @@
 import { ColorRing } from 'react-loader-spinner';
 import { Wrapper } from './FallBackLoader.styled';
-import Wrapper from 'components/Wrapper/Wrapper';
+ 
 const FallBackLoader = () => {
   return (
     <Wrapper>
