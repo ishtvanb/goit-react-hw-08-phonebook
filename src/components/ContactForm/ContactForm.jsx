@@ -12,7 +12,7 @@ const ContactSchema = Yup.object({
     .min(2, 'Too Short!')
     .max(50, 'Too Long!')
     .required('Name is required!'),
-  phone: Yup.string().phone('UA').required('Phone number is required!'),
+  number: Yup.string().phone('UA').required('Phone number is required!'),
 });
 
 export const ContactForm = () => {

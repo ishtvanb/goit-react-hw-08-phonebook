@@ -18,7 +18,7 @@ const Filter = () => {
         size="small"
         sx={{
           mb: 2,
-          ml: 4
+          ml: 8
         }}
         InputLabelProps={{ shrink: true }}
       />
