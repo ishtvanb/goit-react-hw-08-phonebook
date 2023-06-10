@@ -42,11 +42,11 @@ export const RegisterForm = () => {
     >
       {({ handleSubmit }) => (
         <form onSubmit={handleSubmit}>
-          <Field name="email">
+          <Field name="name">
             {({ field, form: { touched, errors } }) => (
               <TextField
                 {...field}
-                label="Email"
+                label="Name"
                 variant="outlined"
                 error={touched.email && Boolean(errors.email)}
                 helperText={touched.email && errors.email}
@@ -59,11 +59,11 @@ export const RegisterForm = () => {
           </Field>
           
 
-          <Field name="password">
+          <Field name="email">
             {({ field, form: { touched, errors } }) => (
               <TextField
                 {...field}
-                label="Password"
+                label="Email"
                 variant="outlined"
                 error={touched.email && Boolean(errors.email)}
                 helperText={touched.email && errors.email}
