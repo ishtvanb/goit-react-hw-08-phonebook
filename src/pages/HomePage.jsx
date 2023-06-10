@@ -1,4 +1,4 @@
-import { MainTitle } from 'components/Container/Container.styled';
+import { MainTitle } from 'components/Wrapper/Wrapper.styled';
 import { Link } from 'react-router-dom';
 import { Button } from '@mui/material';
 import { selectIsLoggedIn } from 'redux/auth/selectors';

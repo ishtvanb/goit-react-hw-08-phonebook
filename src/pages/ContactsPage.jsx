@@ -1,9 +1,9 @@
 import Wrapper from '.components/Wrapper/Wrapper';
-import ContactForm from '.components/ContactForm/ContactForm';
-import ContactsList from '.components/ContactsList/ContactsList';
-import Filter from '.components/Filter/Filter';
-import Loader from '.components/Loader';
-import { PrimaryTitle, SecondaryTitle } from '.components/Wrapper/Wrapper.styled';
+import ContactForm from 'components/ContactForm/ContactForm';
+import ContactsList from 'components/ContactsList/ContactsList';
+import Filter from 'components/Filter/Filter';
+import Loader from 'components/Loader';
+import { PrimaryTitle, SecondaryTitle } from 'components/Wrapper/Wrapper.styled';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/contacts/operations';
