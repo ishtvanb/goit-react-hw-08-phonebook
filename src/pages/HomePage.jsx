@@ -1,4 +1,4 @@
-import { MainTitle } from 'components/Wrapper/Wrapper.styled';
+import { PrimaryTitle } from 'components/Wrapper/Wrapper.styled';
 import { Link } from 'react-router-dom';
 import { Button } from '@mui/material';
 import { selectIsLoggedIn } from 'redux/auth/selectors';
@@ -13,7 +13,7 @@ const HomePage = () => {
         <Wrapper>
           {!isLoggedIn ? (
             <>
-              <MainTitle>Phonebook Web App</MainTitle>
+              <PrimaryTitle>Phonebook Web App</PrimaryTitle>
               <p
                 style={{
                   textAlign: 'center',
