@@ -17,13 +17,14 @@ const HomePage = () => {
               <PrimaryTitle>Phonebook web app</PrimaryTitle>
               <p
                 style={{
+                  color: 'limegreen',
                   textAlign: 'center',
                   padding: 0,
                   margin: 0, 
                   marginBottom: '10px',
                 }}
               >
-                This app was developed to help you manage your contacts
+                Use this app and manage your contacts
               </p>
             
              <p
@@ -33,7 +34,7 @@ const HomePage = () => {
                   margin: 0,
                 }}
               >
-                To create your account, please press{' '}
+                Create your account by pressing {' '}
                 <Button
                   component={Link}
                   to="/register"
