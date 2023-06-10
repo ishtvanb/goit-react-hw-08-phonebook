@@ -23,7 +23,7 @@ const HomePage = () => {
                   marginBottom: '10px',
                 }}
               >
-                This app was developed to help you manage your contacts.
+                This app was developed to help you manage your contacts
               </p>
             
              <p
@@ -51,7 +51,7 @@ const HomePage = () => {
                   color="primary"
                   size="small"
                 > 
-                Log In
+                Log in
                 </Button>
               </p>
             </>
