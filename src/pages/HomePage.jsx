@@ -4,6 +4,7 @@ import { Button } from '@mui/material';
 import { selectIsLoggedIn } from 'redux/auth/selectors';
 import { useSelector } from 'react-redux';
 import Wrapper from 'components/Wrapper/Wrapper';
+
 const HomePage = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
@@ -13,16 +14,16 @@ const HomePage = () => {
         <Wrapper>
           {!isLoggedIn ? (
             <>
-              <PrimaryTitle>Phonebook Web App</PrimaryTitle>
+              <PrimaryTitle>Phonebook web app</PrimaryTitle>
               <p
                 style={{
                   textAlign: 'center',
                   padding: 0,
-                  margin: 0,
+                  margin: 0, 
                   marginBottom: '10px',
                 }}
               >
-                This app was developed to help you managing your contacts.
+                This app was developed to help you manage your contacts.
               </p>
             
              <p
@@ -32,7 +33,7 @@ const HomePage = () => {
                   margin: 0,
                 }}
               >
-                To create your account please press{' '}
+                To create your account, please press{' '}
                 <Button
                   component={Link}
                   to="/register"
@@ -42,7 +43,7 @@ const HomePage = () => {
                 >
                   Register
                 </Button>{' '}
-                If you already have an account press{' '}
+                If you already have an account, press{' '}
                 <Button
                   component={Link}
                   to="/login"
