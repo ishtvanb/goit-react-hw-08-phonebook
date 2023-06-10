@@ -59,7 +59,7 @@ export const RegisterForm = () => {
           </Field>
           
 
-          <Field name="email">
+          <Field name="password">
             {({ field, form: { touched, errors } }) => (
               <TextField
                 {...field}
