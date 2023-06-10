@@ -16,7 +16,10 @@ const Filter = () => {
         id="Find contacts by name"
         value={value}
         size="small"
-        sx={{ mb: 4 }}
+        sx={{
+          mb: 2,
+          ml: 10
+        }}
         InputLabelProps={{ shrink: true }}
       />
     </>
