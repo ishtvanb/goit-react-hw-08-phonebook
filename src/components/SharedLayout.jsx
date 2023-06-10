@@ -13,8 +13,6 @@ const SharedLayout = () => {
         <Outlet />
       </Suspense>
       <Image
-        objectFit={'cover'}
-        objectPosition={'center'} 
         component="img"
         sx={{
           height: 50,
