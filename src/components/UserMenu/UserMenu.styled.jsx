@@ -9,7 +9,8 @@ export const Wrapper = styled.div`
 export const UserName = styled.span`
   font-size: 10px;
   @media screen and (min-width: 420px) {
-    font-size: 15px;
+    font-size: 17px;
+    color: limegreen;
   }
   font-weight: 700;
 `;
