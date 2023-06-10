@@ -16,7 +16,7 @@ const SharedLayout = () => {
         component="img"
         sx={{
           height: 50,
-          width: 1300,
+          width: 100,
         }}
         alt='Phonebook'
         src={bgImage}
