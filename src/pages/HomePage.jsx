@@ -40,7 +40,7 @@ const HomePage = () => {
                   color="primary"
                   size="small"
                 >
-                  Register
+                  REGISTER
                 </Button>{' '}
                 If you already have an account press{' '}
                 <Button
@@ -50,7 +50,7 @@ const HomePage = () => {
                   color="primary"
                   size="small"
                 > 
-                Log In
+                LOG IN
                 </Button>
               </p>
             </>
