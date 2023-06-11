@@ -36,5 +36,3 @@ export const deleteContact = createAsyncThunk(
     }
   }
 );
-
-

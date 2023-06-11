@@ -3,7 +3,6 @@ import { ContactItem } from './ContactsList.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectVisibleContacts } from 'redux/contacts/selectors';
 import { deleteContact } from 'redux/contacts/operations';
-import { number } from 'prop-types';
 
 const ContactsList = () => {
   const contacts = useSelector(selectVisibleContacts);
@@ -13,7 +12,7 @@ const ContactsList = () => {
 
   return (
     <ul>
-      {contacts?.map(({ name, phone, id }) => {
+      {contacts?.map(({ name, number, id }) => {
         return (
           <ContactItem key={id}>
             <span
