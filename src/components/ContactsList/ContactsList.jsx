@@ -12,7 +12,7 @@ const ContactsList = () => {
 
   return (
     <ul>
-      {contacts?.map(({ name, number, id }) => {
+      {contacts?.map(({ name, phone, id }) => {
         return (
           <ContactItem key={id}>
             <span
@@ -27,7 +27,7 @@ const ContactsList = () => {
                 marginRight: '10px',
               }}
             >
-              {number}
+              {phone}
             </span>
 
             <BsTrash
