@@ -5,6 +5,7 @@ import { useState } from 'react';
 import * as Yup from 'yup';
 import { TextField, Button, InputAdornment, IconButton } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
+
 const LogInSchema = Yup.object({
   email: Yup.string('Enter your email')
     .email('Enter a valid email')
