@@ -58,7 +58,6 @@ export const RegisterForm = () => {
             )}
           </Field>
           
-
           <Field name="email">
             {({ field, form: { touched, errors } }) => (
               <TextField
